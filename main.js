@@ -37,9 +37,21 @@ divParentId.insertBefore(newAnchor, newParagraph);
 /*----------- Exercise #3: REMOVING/REPLACING ELEMENTS/OBJECTS -----------*/
 
 // TODO: Replace the "Child Node" with a new <p> element that reads "New Child Node"
+var childNode = document.getElementById('N1');
+var newNode = document.createElement('p');
+var parentNode = document.getElementById('exercise-container3');
+
+childNode.textContent = "Child Node";
+newNode.textContent = "New Child Node";
+
+setTimeout(()=> {
+    parentNode.replaceChild(newNode, childNode);
+}, 3000);
 
 // TODO: Remove the "New Child Node"
-
+setTimeout(()=> {
+    parentNode.removeChild(newNode);
+}, 6000);
 /*----------- Exercise #4: LIST ITEMS ----------- */
 // Use the following array of values to generate a list on the DOM
 
