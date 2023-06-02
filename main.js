@@ -59,16 +59,47 @@ let list = [ "apples", "bananas", "carrots", "dragon fruit", "eggplant", "fish",
 
 
 // TODO: Create an unordered list element
-
+var unorderedList = document.createElement('ul');
 // TODO: Iterate over the array values, and create a list item element for each
-
+list.forEach(function(item){
+    let liElement = document.createElement('li');
+    liElement.textContent = item;
+    unorderedList.appendChild(liElement);
+})
 // TODO: Append the new list items to the unordered list element
 
 // TODO: Append the unordered list to the `div#container` under exercise 4 
-
+var divContainer = document.getElementById('container');
+divContainer.appendChild(unorderedList);
 /*----------- Exercise #5: DOM EVENTS --------------*/
 
 // TODO: write a function called "show" which creates a new div with an alerting message to the user with this message
 // -> "Clicking the button triggers the onclick event, which calls the JS function show()... which alerts the user"
 // This div should be a 'modal' that covers the main content on the screen
 // BONUS: The modal popup should be able to be closed. Refactor for this functionality
+
+const button = document.getElementById("btn");
+const exer5 = document.querySelector(".exercise5");
+
+function show (){
+    let parentDiv = document.createElement('div');
+    let childDiv = document.createElement('div');
+    childDiv.textContent = "Clicking the button triggers the onclick event, which calls the JS function show()... which alerts the user";
+    parentDiv.id = "modal"
+    childDiv.classList.add("modal-card");
+    parentDiv.appendChild(childDiv);
+    exer5.appendChild(parentDiv);
+
+    // parentDiv.onClick = function() {
+    // exer5.removeChild(parentDiv)
+    // };
+}
+button.addEventListener('click', show);
+
+
+//firstly, get the button from the html
+//create a function called show
+//in the function show, create a div and create another div(parent and child)
+//child div will be the modal card
+//look at other files
+//do the event listener
